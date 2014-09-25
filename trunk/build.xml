@@ -1,0 +1,45 @@
+<project default='all' basedir="." >
+
+   <description>
+	 Compile the components that needs to, run the unit tests, package the components, deploy the plugin to sonar server
+   </description>
+   
+   <!--
+    First define properties, datatypes, and default tasks; then define targets.
+    Any Ant tasks placed outside of any target are always executed first.
+   -->
+
+  <!-- Override default property values with an external properties file, if present. -->
+  <property file='build.properties'/>
+
+  <!-- Default property values, if not overridden elsewhere: -->
+  <property name='app.version' value='1.4.5' />
+  <property name='app.name' value='sonar-ruby-plugin' />
+  <property environment="env" />
+  <property name="mvn.home" location="${env.MVN_HOME}" />
+  
+   <!-- Package the components -->
+	<target name='package' description="Package the components">
+		<echo>${mvn.home}</echo>
+		<echo>${basedir}</echo>
+		<exec dir="${basedir}" executable="cmd">			
+			<arg line="/c mvn package -Dmaven.test.skip=true" />
+		</exec>
+	</target>
+	
+	<target name='deploy' description="Deploy plugins" depends='package'>
+		<delete>
+			<fileset dir="${sonar-server}/extensions/plugins" includes="${app.name}*.jar" />
+		</delete>
+		<copy todir="${sonar-server}/extensions/plugins">
+			<fileset dir="${basedir}/target">
+				<include name="${app.name}-${app.version}.jar"/>
+			</fileset>			
+		</copy>
+	</target>
+   
+	<target name='all' description='package and deploy' depends='deploy'>
+		<echo>Finished build process.</echo>
+	</target>
+   
+</project>
