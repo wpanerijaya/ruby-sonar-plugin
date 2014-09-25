@@ -1,0 +1,2106 @@
+<rules>
+	<!-- Lint -->
+	<rule>
+			<key>AmbiguousOperator</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Ambiguous Operator]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for ambiguous operators in the first argument of a method invocation without parentheses.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AmbiguousRegexpLiteral</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Ambiguous Regexp Literal]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for ambiguous regexp literals in the first argument of a method invocation without parenthesis.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AssignmentInCondition</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Assignment In Condition]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't use assignment in conditions.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>BlockAlignment</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Block Alignment]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Align block ends correctly.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ConditionPosition</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Condition Position]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for condition placed in a confusing position relative to the keyword.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Debugger</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Debugger]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Check for debugger calls.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>DeprecatedClassMethods</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Deprecated Class Methods]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Check for deprecated class method calls.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ElseLayout</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Else Layout]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Check for odd code arrangement in an else block.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EmptyEnsure</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Empty Ensure]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for empty ensure block.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EmptyInterpolation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Empty Interpolation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for empty string interpolation.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EndAlignment</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[End Alignment]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Align ends correctly.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EndInMethod</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[End In Method]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          END blocks should not be placed inside method definitions.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EnsureReturn</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Ensure Return]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Never use return in an ensure block.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Eval</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Eval]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          The use of eval represents a serious security risk.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>HandleExceptions</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Handle Exceptions]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't suppress exception.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>InvalidCharacterLiteral</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Invalid Character Literal]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for invalid character literals with a non-escaped whitespace character.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>LiteralInCondition</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Literal In Condition]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks of literals used in conditions.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>LiteralInInterpolation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Literal In Interpolation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for literals used in interpolation.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Loop</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Loop]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use Kernel#loop with break rather than begin/end/until or begin/end/while for post-loop tests.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ParenthesesAsGroupedExpression</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Parentheses As Grouped Expression]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for method calls with a space before the opening parenthesis.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RequireParentheses</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Require Parentheses]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use parentheses in the method call to avoid confusion about precedence.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RescueException</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Rescue Exception]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid rescuing the Exception class.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ShadowingOuterLocalVariable</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Shadowing Outer Local Variable]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Do not use the same name as outer local variable for block arguments or block local variables.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceBeforeFirstArg</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Before First Arg]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Put a space between a method name and the first argument in a method call without parentheses.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>StringConversionInInterpolation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[String Conversion In Interpolation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for Object#to_s usage in string interpolation.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UnderscorePrefixedVariableName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Underscore Prefixed Variable Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Do not use prefix `_` for a variable that is used.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UnreachableCode</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Unreachable Code]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Unreachable code.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UnusedBlockArgument</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Unused Block Argument]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for unused block arguments.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UnusedMethodArgument</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Unused Method Argument]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for unused method arguments.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UselessAccessModifier</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Useless Access Modifier]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for useless access modifiers.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UselessAssignment</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Useless Assignment]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for useless assignment to a local variable.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UselessComparison</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Useless Comparison]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for comparison of something with itself.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UselessElseWithoutRescue</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Useless Else Without Rescue]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for useless `else` in `begin..end` without `rescue`.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UselessSetterCall</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Useless Setter Call]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for useless setter call to a local variable.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Void</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Void]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Possible use of operator/literal/variable in void context.
+	        </p>
+	      ]]>
+			</description>
+	</rule>		
+	<!-- Rails -->
+	<rule>
+			<key>ActionFilter</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Action Filter]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Enforces consistent use of action filter methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>DefaultScope</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Default Scope]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks if the argument passed to default_scope is a block.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Delegate</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Delegate]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Prefer delegate method for delegations.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>HasAndBelongsToMany</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Has And Belongs To Many]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Prefer has_many :through to has_and_belongs_to_many.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Output</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Output]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for calls to puts, print, etc.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ReadWriteAttribute</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Read Write Attribute]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for read_attribute(:attr) and write_attribute(:attr, val).
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ScopeArgs</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Scope Args]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks the arguments of ActiveRecord scopes.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Validation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Validation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use sexy validations.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<!-- Style -->
+	<rule>
+			<key>AccessModifierIndentation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Access Modifier Indentation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Check indentation of private/protected visibility modifiers.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AccessorMethodName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Accessor Method Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Check the naming of accessor methods for get_/set_.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Alias</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Alias]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use alias_method instead of alias.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AlignArray</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Align Array]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Align the elements of an array literal if they span more than one line.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AlignHash</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Align Hash]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Align the elements of a hash literal if they span more than one line.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AlignParameters</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Align Parameters]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Align the parameters of a method call if they span more than one line.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AndOr</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[And Or]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use &&/|| instead of and/or.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ArrayJoin</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Array Join]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use Array#join instead of Array#*.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AsciiComments</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Ascii Comments]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use only ascii symbols in comments.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>AsciiIdentifiers</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Ascii Identifiers]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use only ascii symbols in identifiers.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Attr</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Attr]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for uses of Module#attr.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>BeginBlock</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Begin Block]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid the use of BEGIN blocks.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>BlockComments</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Block Comments]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Do not use block comments.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>BlockNesting</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Block Nesting]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid excessive block nesting
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Blocks</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Blocks]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid using {...} for multi-line blocks (multiline chaining is always ugly). Prefer {...} over do...end for single-line blocks.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>BracesAroundHashParameters</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Braces Around Hash Parameters]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Enforce braces style inside hash parameters.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>CaseEquality</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Case Equality]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid explicit use of the case equality operator(===).
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>CaseIndentation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Case Indentation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Indentation of when in a case/when/[else/]end.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>CharacterLiteral</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Character Literal]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for uses of character literals.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ClassAndModuleCamelCase</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Class And Module Camel Case]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use CamelCase for classes and modules.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ClassAndModuleChildren</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Class And Module Children]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks style of children classes and modules.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ClassLength</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Class Length]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid classes longer than 100 lines of code.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ClassMethods</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Class Methods]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use self when defining module/class methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ClassVars</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Class Vars]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid the use of class variables.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>CollectionMethods</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Collection Methods]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Preferred collection methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ColonMethodCall</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Colon Method Call]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Do not use :: for method call.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>CommentAnnotation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Comment Annotation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks formatting of special comments (TODO, FIXME, OPTIMIZE, HACK, REVIEW).
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ConstantName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Constant Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Constants should use SCREAMING_SNAKE_CASE.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>CyclomaticComplexity</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Cyclomatic Complexity]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid complex methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>DefWithParentheses</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Def With Parentheses]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use def with parentheses when there are arguments.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>DeprecatedHashMethods</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Deprecated Hash Methods]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for use of deprecated Hash methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Documentation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Documentation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Document classes and non-namespace modules.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>DotPosition</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Dot Position]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks the position of the dot in multi-line method calls.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>DoubleNegation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Double Negation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for uses of double negation (!!).
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EmptyLineBetweenDefs</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Empty Line Between Defs]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use empty lines between defs.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EmptyLines</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Empty Lines]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't use several empty lines in a row.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EmptyLinesAroundAccessModifier</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Empty Lines Around Access Modifier]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Keep blank lines around access modifiers.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EmptyLinesAroundBody</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Empty Lines Around Body]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Keeps track of empty lines around expression bodies.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EmptyLiteral</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Empty Literal]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Prefer literals to Array.new/Hash.new/String.new.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Encoding</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Encoding]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use UTF-8 as the source file encoding.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EndBlock</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[End Block]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid the use of END blocks.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EndOfLine</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[End Of Line]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use Unix-style line endings.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>EvenOdd</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Even Odd]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Favor the use of Fixnum#even? && Fixnum#odd?
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>FileName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[File Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use snake_case for source file names.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>FlipFlop</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Flip Flop]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for flip flops
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>For</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[For]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks use of for or each in multiline loops.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>FormatString</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Format String]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Enforce the use of Kernel#sprintf, Kernel#format or String#%.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>GlobalVars</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Global Vars]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Do not introduce global variables.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>GuardClause</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Guard Clause]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Check for conditionals that can be replaced with guard clauses
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>HashSyntax</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Hash Syntax]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Prefer Ruby 1.9 hash syntax { a: 1, b: 2 } over 1.8 syntax { :a => 1, :b => 2 }.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>IfUnlessModifier</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[If Unless Modifier]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Favor modifier if/unless usage when you have a single-line body.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>IfWithSemicolon</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[If With Semicolon]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Never use if x; .... Use the ternary operator instead.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>IndentArray</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Indent Array]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks the indentation of the first element in an array literal.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>IndentHash</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Indent Hash]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks the indentation of the first key in a hash literal.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>IndentationConsistency</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Indentation Consistency]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Keep indentation straight.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>IndentationWidth</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Indentation Width]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use 2 spaces for indentation.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Lambda</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Lambda]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use the new lambda literal syntax for single-line blocks.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>LambdaCall</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Lambda Call]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use lambda.call(...) instead of lambda.(...).
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>LeadingCommentSpace</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Leading Comment Space]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Comments should start with a space.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>LineEndConcatenation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Line End Concatenation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use \ instead of + or << to concatenate two string literals at line end.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>LineLength</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Line Length]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Limit lines to 79 characters.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MethodCallParentheses</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Method Call Parentheses]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Do not use parentheses for method calls with no arguments.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MethodCalledOnDoEndBlock</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Method Called On Do End Block]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid chaining a method call on a do...end block.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MethodDefParentheses</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Method Def Parentheses]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks if the method definitions have or don't have parentheses.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MethodLength</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Method Length]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid methods longer than 10 lines of code.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MethodName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Method Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use the configured style when naming methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ModuleFunction</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Module Function]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for usage of `extend self` in modules.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MultilineBlockChain</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Multiline Block Chain]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid multi-line chains of blocks.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MultilineIfThen</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Multiline If Then]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Never use then for multi-line if/unless.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>MultilineTernaryOperator</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Multiline Ternary Operator]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid multi-line ?: (the ternary operator); use if/unless instead.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>NegatedIf</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Negated If]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Favor unless over if for negative conditions (or control flow or).
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>NegatedWhile</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Negated While]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Favor until over while for negative conditions.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>NestedTernaryOperator</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Nested Ternary Operator]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use one expression per branch in a ternary operator.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>NilComparison</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Nil Comparison]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Prefer x.nil? to x == nil.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>NonNilCheck</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Non Nil Check]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for redundant nil checks.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Not</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Not]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use ! instead of not.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>NumericLiterals</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Numeric Literals]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Add underscores to large numeric literals to improve their readability.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>OneLineConditional</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[One Line Conditional]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Favor the ternary operator(?:) over if/then/else/end constructs.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>OpMethod</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Op Method]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          When defining binary operators, name the argument other.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ParameterLists</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Parameter Lists]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid parameter lists longer than three or four parameters.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>ParenthesesAroundCondition</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Parentheses Around Condition]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't use parentheses around the condition of an if/unless/while.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>PercentLiteralDelimiters</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Percent Literal Delimiters]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use `%`-literal delimiters consistently
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>PerlBackrefs</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Perl Backrefs]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid Perl-style regex back references.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>PredicateName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Predicate Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Check the names of predicate methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Proc</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Proc]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use proc instead of Proc.new.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RaiseArgs</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Raise Args]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks the arguments passed to raise/fail.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RedundantBegin</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Redundant Begin]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't use begin blocks when they are not needed.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RedundantException</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Redundant Exception]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for an obsolete RuntimeException argument in raise/fail.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RedundantReturn</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Redundant Return]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't use return where it's not required.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RedundantSelf</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Redundant Self]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't use self where it's not needed.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RegexpLiteral</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Regexp Literal]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use %r for regular expressions matching more than `MaxSlashes` '/' characters. Use %r only for regular expressions matching more than `MaxSlashes` '/' character.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>RescueModifier</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Rescue Modifier]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid using rescue in its modifier form.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SelfAssignment</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Self Assignment]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for places where self-assignment shorthand should have been used.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Semicolon</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Semicolon]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't use semicolons to terminate expressions.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SignalException</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Signal Exception]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for proper usage of fail and raise.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SingleLineBlockParams</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Single Line Block Params]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Enforces the names of some block params.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SingleLineMethods</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Single Line Methods]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid single-line methods.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SingleSpaceBeforeFirstArg</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Single Space Before First Arg]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks that exactly one space is used between a method name and the first argument for method calls without parentheses.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAfterColon</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space After Colon]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use spaces after colons.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAfterComma</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space After Comma]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use spaces after commas.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAfterControlKeyword</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space After Control Keyword]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use spaces after if/elsif/unless/while/until/case/when.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAfterMethodName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space After Method Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Never put a space between a method name and the opening parenthesis in a method definition.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAfterNot</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space After Not]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Tracks redundant space after the ! operator.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAfterSemicolon</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space After Semicolon]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use spaces after semicolons.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAroundEqualsInParameterDefault</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Around Equals In Parameter Default]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks that the equals signs in parameter default assignments have or don't have surrounding space depending on configuration.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceAroundOperators</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Around Operators]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use spaces around operators.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceBeforeBlockBraces</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Before Block Braces]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks that the left block brace has or doesn't have space before it.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceBeforeModifierKeyword</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Before Modifier Keyword]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Put a space before the modifier keyword.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceInsideBlockBraces</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Inside Block Braces]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks that block braces have or don't have surrounding space. For blocks taking parameters, checks that the left brace has or doesn't have trailing space.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceInsideBrackets</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Inside Brackets]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          No spaces after [ or before ].
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceInsideHashLiteralBraces</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Inside Hash Literal Braces]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use spaces inside hash literal braces - or don't.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceInsideParens</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Inside Parens]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          No spaces after ( or before ).
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpecialGlobalVars</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Special Global Vars]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid Perl-style global variables.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>StringLiterals</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[String Literals]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks if uses of quotes match the configured preference.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SymbolArray</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Symbol Array]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use %i or %I for arrays of symbols.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Tab</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Tab]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          No hard tabs.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>TrailingBlankLines</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Trailing Blank Lines]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks trailing blank lines and final newline.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>TrailingComma</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Trailing Comma]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for trailing comma in parameter lists and literals.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>TrailingWhitespace</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Trailing Whitespace]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Avoid trailing whitespace.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>TrivialAccessors</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Trivial Accessors]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Prefer attr_* methods to trivial readers/writers.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UnlessElse</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Unless Else]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Never use unless with else. Rewrite these with the positive case first.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>UnneededCapitalW</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Unneeded Capital W]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for %W when interpolation is not needed.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>VariableInterpolation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Variable Interpolation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Don't interpolate global, instance and class variables directly in strings.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>VariableName</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Variable Name]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use the configured style when naming variables.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>WhenThen</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[When Then]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use when x then ... for one-line cases.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>WhileUntilDo</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[While Until Do]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Checks for redundant do after while or until.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>WhileUntilModifier</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[While Until Modifier]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Favor modifier while/until usage when you have a single-line body.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>WordArray</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Word Array]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use %w or %W for arrays of words.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Syntax</key>
+			<priority>CRITICAL</priority>
+			<name><![CDATA[Syntax]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Syntax Error
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>Next</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Next]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Use `next` to skip iteration.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>CommentIndentation</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Comment Indentation]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Incorrect indentation detected
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	<rule>
+			<key>SpaceBeforeComment</key>
+			<priority>MINOR</priority>
+			<name><![CDATA[Space Before Comment]]></name>
+			<description>
+	      <![CDATA[
+	        <p>
+	          Put a space before an end-of-line comment.
+	        </p>
+	      ]]>
+			</description>
+	</rule>
+	
+</rules>
