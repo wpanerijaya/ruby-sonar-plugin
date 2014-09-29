@@ -21,7 +21,6 @@ import org.sonar.api.scan.filesystem.FileType;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import com.godaddy.sonar.ruby.constants.RubyConstants;
-import com.godaddy.sonar.ruby.core.Ruby;
 import com.godaddy.sonar.ruby.metricfu.RoodiProblem.RoodiCheck;
 
 public class MetricfuIssueSensor implements Sensor {
@@ -43,19 +42,15 @@ public class MetricfuIssueSensor implements Sensor {
 	}
 
 	public boolean shouldExecuteOnProject(Project project) {
-		// WP
-		// return Ruby.KEY.equals(project.getLanguageKey());
 		return !moduleFileSystem.files(
-				FileQuery.on(FileType.values()).onLanguage(Ruby.KEY)).isEmpty();
+				FileQuery.on(FileType.values()).onLanguage(
+						RubyConstants.LANGUAGE_KEY)).isEmpty();
 	}
 
 	public void analyse(Project project, SensorContext context) {
 		List<File> sourceDirs = moduleFileSystem.sourceDirs();
-		// WP
-		// List<File> rubyFilesInProject =
-		// moduleFileSystem.files(FileQuery.onSource().onLanguage(project.getLanguageKey()));
 		List<File> rubyFilesInProject = moduleFileSystem.files(FileQuery
-				.onSource().onLanguage(Ruby.KEY));
+				.onSource().onLanguage(RubyConstants.LANGUAGE_KEY));
 
 		for (File file : rubyFilesInProject) {
 			LOG.debug("analyzing issues in the file: " + file.getName());
@@ -63,17 +58,15 @@ public class MetricfuIssueSensor implements Sensor {
 				analyzeFile(file, sourceDirs, context);
 			} catch (IOException e) {
 				LOG.error("Can not analyze the file " + file.getAbsolutePath()
-						+ " for issues");
+						+ " for issues", e);
 			}
 		}
 	}
 
 	private void analyzeFile(File file, List<File> sourceDirs,
 			SensorContext sensorContext) throws IOException {
-		// WP
 		Resource<?> resource = org.sonar.api.resources.File.fromIOFile(file,
 				sourceDirs);
-		// RubyFile resource = new RubyFile(file, sourceDirs);
 		List<ReekSmell> smells = metricfuYamlParser.parseReek(file
 				.getAbsolutePath());
 
@@ -143,7 +136,7 @@ public class MetricfuIssueSensor implements Sensor {
 			LOG.error("key " + key);
 			LOG.error("severity " + severity);
 			LOG.error("message " + message);
-			LOG.error("Error in create issue object " + e.getMessage());
+			LOG.error("Error in create issue object ", e);
 		}
 	}
 

@@ -1,25 +1,26 @@
 package com.godaddy.sonar.ruby.core;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.sonar.squid.recognizer.Detector;
 import org.sonar.squid.recognizer.EndWithDetector;
 import org.sonar.squid.recognizer.KeywordsDetector;
 import org.sonar.squid.recognizer.LanguageFootprint;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.godaddy.sonar.ruby.constants.RubyConstants;
 
 public class RubyFootPrint implements LanguageFootprint {
-    private static final double END_WITH_DETECTOR = 0.95;
-    private static final double KEYWORDS_DETECTOR = 0.3;
+	private final Set<Detector> detectors = new HashSet<Detector>();
 
-    private final Set<Detector> detectors = new HashSet<Detector>();
+	public RubyFootPrint() {
+		detectors.add(new EndWithDetector(RubyConstants.END_WITH_DETECTOR, ')',
+				'"', '\''));
+		detectors.add(new KeywordsDetector(RubyConstants.KEYWORDS_DETECTOR,
+				RubyConstants.RUBY_KEYWORDS_ARRAY));
+	}
 
-    public RubyFootPrint() {
-        detectors.add(new EndWithDetector(END_WITH_DETECTOR, ')', '"', '\''));
-        detectors.add(new KeywordsDetector(KEYWORDS_DETECTOR, Ruby.RUBY_KEYWORDS_ARRAY));
-    }
-
-    public Set<Detector> getDetectors() {
-        return detectors;
-    }
+	public Set<Detector> getDetectors() {
+		return detectors;
+	}
 }

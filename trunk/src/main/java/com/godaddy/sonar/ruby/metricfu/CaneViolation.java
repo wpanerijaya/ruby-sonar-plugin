@@ -1,5 +1,9 @@
 package com.godaddy.sonar.ruby.metricfu;
 
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
 public abstract class CaneViolation {
 	private String file;
 
@@ -24,4 +28,8 @@ public abstract class CaneViolation {
 	public String toString() {
 		return "file: " + file;
 	}
+
+	public abstract List<CaneViolation> getViolations(
+			String fileNameFromModule, File filepath,
+			List<Map<String, Object>> caneViolationResult);
 }

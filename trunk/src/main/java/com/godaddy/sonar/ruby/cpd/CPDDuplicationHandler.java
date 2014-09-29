@@ -8,6 +8,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import com.common.StringUtil;
+import com.godaddy.sonar.ruby.constants.RubyConstants;
 
 /**
  * The Handler for SAX Events.
@@ -25,23 +26,24 @@ public class CPDDuplicationHandler extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
 		// Create a new CPDDuplication object when the start tag is found
-		if (qName.equals("duplication")) {
+		if (RubyConstants.TAG_CPD_DUPLICATION.equals(qName)) {
 			cpd = new CPDDuplication();
-			lines = StringUtil.safeInteger(attributes.getValue("lines"));
-		} else if (qName.equals("file")) {
-			String filename = StringUtil
-					.safeString(attributes.getValue("path"));
-			int line = StringUtil.safeInteger(attributes.getValue("line"));
+			lines = StringUtil.safeInteger(attributes
+					.getValue(RubyConstants.TAG_CPD_LINES));
+		} else if (RubyConstants.TAG_CPD_FILE.equals(qName)) {
+			String filename = StringUtil.safeString(attributes
+					.getValue(RubyConstants.TAG_CPD_PATH));
+			int line = StringUtil.safeInteger(attributes
+					.getValue(RubyConstants.TAG_CPD_LINE));
 			match = cpd.new Match(filename, line, lines);
 			cpd.addMatch(match);
 		}
-
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
-		if (qName.equals("duplication")) {
+		if (RubyConstants.TAG_CPD_DUPLICATION.equals(qName)) {
 			// Add the duplication to list once end tag is found
 			cpdList.add(cpd);
 		}

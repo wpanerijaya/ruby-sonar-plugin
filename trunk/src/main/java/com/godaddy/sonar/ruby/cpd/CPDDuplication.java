@@ -1,6 +1,7 @@
 package com.godaddy.sonar.ruby.cpd;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CPDDuplication {
 
@@ -59,7 +60,7 @@ public class CPDDuplication {
 	}
 
 	private String reason;
-	private ArrayList<Match> matches = new ArrayList<Match>();
+	private List<Match> matches = new ArrayList<Match>();
 
 	public CPDDuplication(String reason) {
 		this.reason = reason;
@@ -76,7 +77,7 @@ public class CPDDuplication {
 		this.reason = reason;
 	}
 
-	public ArrayList<Match> getMatches() {
+	public List<Match> getMatches() {
 		return matches;
 	}
 

@@ -9,11 +9,10 @@ import org.sonar.api.rules.RuleRepository;
 import org.sonar.api.rules.XMLRuleParser;
 
 import com.godaddy.sonar.ruby.constants.RubyConstants;
-import com.godaddy.sonar.ruby.core.Ruby;
 
 public class CaneRulesRepository extends RuleRepository {
 	public CaneRulesRepository() {
-		super(RubyConstants.KEY_REPOSITORY_CANE, Ruby.KEY);
+		super(RubyConstants.KEY_REPOSITORY_CANE, RubyConstants.LANGUAGE_KEY);
 		setName(RubyConstants.NAME_REPOSITORY_CANE);
 	}
 
@@ -21,7 +20,7 @@ public class CaneRulesRepository extends RuleRepository {
 	public List<Rule> createRules() {
 		XMLRuleParser parser = new XMLRuleParser();
 		InputStream input = CaneRulesRepository.class
-				.getResourceAsStream("/com/godaddy/sonar/ruby/metricfu/CaneRulesRepository.xml");
+				.getResourceAsStream(RubyConstants.CANE_RULES_REPOSITORY);
 		try {
 			return parser.parse(input);
 		} finally {

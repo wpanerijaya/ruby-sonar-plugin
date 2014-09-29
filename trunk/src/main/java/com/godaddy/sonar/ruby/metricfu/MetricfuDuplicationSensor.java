@@ -5,6 +5,8 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -29,7 +31,7 @@ import org.sonar.api.scan.filesystem.ModuleFileSystem;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.godaddy.sonar.ruby.core.Ruby;
+import com.godaddy.sonar.ruby.constants.RubyConstants;
 
 public class MetricfuDuplicationSensor implements Sensor {
 	private static final Logger LOG = LoggerFactory
@@ -45,20 +47,16 @@ public class MetricfuDuplicationSensor implements Sensor {
 	}
 
 	public boolean shouldExecuteOnProject(Project project) {
-		// WP
-		// return Ruby.KEY.equals(project.getLanguageKey());
 		return !moduleFileSystem.files(
-				FileQuery.on(FileType.values()).onLanguage(Ruby.KEY)).isEmpty();
+				FileQuery.on(FileType.values()).onLanguage(
+						RubyConstants.LANGUAGE_KEY)).isEmpty();
 	}
 
 	public void analyse(Project project, SensorContext context) {
 		LOG.info("MetricfuDuplicationSensor - start analyze");
 		List<File> sourceDirs = moduleFileSystem.sourceDirs();
-		// WP
-		// List<File> rubyFilesInProject =
-		// moduleFileSystem.files(FileQuery.onSource().onLanguage(project.getLanguageKey()));
 		List<File> rubyFilesInProject = moduleFileSystem.files(FileQuery
-				.onSource().onLanguage(Ruby.KEY));
+				.onSource().onLanguage(RubyConstants.LANGUAGE_KEY));
 
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory
@@ -69,35 +67,28 @@ public class MetricfuDuplicationSensor implements Sensor {
 			Element root = doc.createElement("duplications");
 			doc.appendChild(root);
 
-			HashMap<String, Double> duplicated_blocks = new HashMap<String, Double>();
-			HashMap<String, Double> duplicated_lines = new HashMap<String, Double>();
-			HashMap<String, Document> duplicated_xml = new HashMap<String, Document>();
+			Map<String, Double> duplicatedBlocks = new HashMap<String, Double>();
+			Map<String, Double> duplicatedLines = new HashMap<String, Double>();
+			Map<String, Document> duplicatedXml = new HashMap<String, Document>();
 
 			List<FlayReason> duplications = metricfuYamlParser.parseFlay();
 			for (FlayReason duplication : duplications) {
 				Element group = doc.createElement("g");
 				for (FlayReason.Match match : duplication.getMatches()) {
-					File file = new File(moduleFileSystem.baseDir(),
-							match.getFile());
-					// WP
-					Resource<?> resource = org.sonar.api.resources.File
-							.fromIOFile(file, sourceDirs);
-					// RubyFile resource = new RubyFile(file, sourceDirs);
-					// String key = project.getKey() + ":" + resource.getKey();
 					String key = project.getKey() + ":" + match.getFile();
 					LOG.debug("key : " + key);
-					if (duplicated_blocks.containsKey(key)) {
-						duplicated_blocks.put(key,
-								duplicated_blocks.get(key) + 1);
+					if (duplicatedBlocks.containsKey(key)) {
+						duplicatedBlocks
+								.put(key, duplicatedBlocks.get(key) + 1);
 					} else {
-						duplicated_blocks.put(key, 1.0);
+						duplicatedBlocks.put(key, 1.0);
 					}
 
-					if (duplicated_lines.containsKey(key)) {
-						duplicated_lines.put(key, duplicated_lines.get(key)
+					if (duplicatedLines.containsKey(key)) {
+						duplicatedLines.put(key, duplicatedLines.get(key)
 								+ match.getLines());
 					} else {
-						duplicated_lines.put(key, match.getLines() * 1.0);
+						duplicatedLines.put(key, match.getLines() * 1.0);
 					}
 
 					Element block = doc.createElement("b");
@@ -108,31 +99,24 @@ public class MetricfuDuplicationSensor implements Sensor {
 				}
 
 				// Now that we have the group XML, add it to each file.
-				HashSet<String> already_added = new HashSet<String>();
+				Set<String> alreadyAdded = new HashSet<String>();
 				for (FlayReason.Match match : duplication.getMatches()) {
-					File file = new File(moduleFileSystem.baseDir(),
-							match.getFile());
-					// WP
-					Resource<?> resource = org.sonar.api.resources.File
-							.fromIOFile(file, sourceDirs);
-					// RubyFile resource = new RubyFile(file, sourceDirs);
-					// String key = project.getKey() + ":" + resource.getKey();
 					String key = project.getKey() + ":" + match.getFile();
 					LOG.debug("key : " + key);
-					if (!duplicated_xml.containsKey(key)) {
+					if (!duplicatedXml.containsKey(key)) {
 						Document d = builder.newDocument();
 						Element r = d.createElement("duplications");
 						d.appendChild(r);
-						duplicated_xml.put(key, d);
+						duplicatedXml.put(key, d);
 					}
 
 					// If we have duplications in the same file, only add them
 					// once.
-					if (!already_added.contains(key)) {
-						Document d = duplicated_xml.get(key);
+					if (!alreadyAdded.contains(key)) {
+						Document d = duplicatedXml.get(key);
 						d.getFirstChild()
 								.appendChild(d.importNode(group, true));
-						already_added.add(key);
+						alreadyAdded.add(key);
 					}
 				}
 			}
@@ -161,27 +145,25 @@ public class MetricfuDuplicationSensor implements Sensor {
 				String resourceKey = StringUtils.substringAfterLast(filePath,
 						baseDirFixed);
 				LOG.debug("resourceKey : " + resourceKey);
-				// RubyFile resource = new RubyFile(file, sourceDirs);
-				// String key = project.getKey() + ":" + resource.getKey();
 				String key = project.getKey() + ":" + resourceKey;
 				LOG.debug("key : " + key);
-				if (duplicated_blocks.containsKey(key)) {
+				if (duplicatedBlocks.containsKey(key)) {
 					context.saveMeasure(resource, CoreMetrics.DUPLICATED_FILES,
 							1.0);
 					context.saveMeasure(resource,
 							CoreMetrics.DUPLICATED_BLOCKS,
-							duplicated_blocks.get(key));
+							duplicatedBlocks.get(key));
 					context.saveMeasure(resource, CoreMetrics.DUPLICATED_LINES,
-							duplicated_lines.get(key));
+							duplicatedLines.get(key));
 				} else {
 					context.saveMeasure(resource, CoreMetrics.DUPLICATED_FILES,
 							0.0);
 				}
 
-				if (duplicated_xml.containsKey(key)) {
+				if (duplicatedXml.containsKey(key)) {
 					StringWriter writer = new StringWriter();
 					transformer.transform(
-							new DOMSource(duplicated_xml.get(key)),
+							new DOMSource(duplicatedXml.get(key)),
 							new StreamResult(writer));
 					context.saveMeasure(resource, new Measure(
 							CoreMetrics.DUPLICATIONS_DATA, writer.getBuffer()

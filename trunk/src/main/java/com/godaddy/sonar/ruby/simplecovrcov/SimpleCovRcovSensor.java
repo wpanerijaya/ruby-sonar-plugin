@@ -18,7 +18,7 @@ import org.sonar.api.scan.filesystem.FileQuery;
 import org.sonar.api.scan.filesystem.FileType;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
-import com.godaddy.sonar.ruby.core.Ruby;
+import com.godaddy.sonar.ruby.constants.RubyConstants;
 
 public class SimpleCovRcovSensor implements Sensor {
 	private static final Logger LOG = LoggerFactory
@@ -37,24 +37,24 @@ public class SimpleCovRcovSensor implements Sensor {
 	}
 
 	public boolean shouldExecuteOnProject(Project project) {
-		// WP
-		// return Ruby.KEY.equals(project.getLanguageKey());
 		return !moduleFileSystem.files(
-				FileQuery.on(FileType.values()).onLanguage(Ruby.KEY)).isEmpty();
+				FileQuery.on(FileType.values()).onLanguage(
+						RubyConstants.LANGUAGE_KEY)).isEmpty();
 	}
 
 	public void analyse(Project project, SensorContext context) {
 		File jsonFile = new File("coverage/.resultset.json");
 
-		if (!jsonFile.exists())
+		if (!jsonFile.exists()) {
 			return;
+		}
 
 		List<File> sourceDirs = moduleFileSystem.sourceDirs();
 
 		try {
 			calculateMetrics(sourceDirs, jsonFile, context);
 		} catch (IOException e) {
-			LOG.error("unable to calculate Metrics");
+			LOG.error("unable to calculate Metrics", e);
 		}
 	}
 
@@ -69,10 +69,8 @@ public class SimpleCovRcovSensor implements Sensor {
 			try {
 				String fileName = entry.getKey();
 				sourceFile = new File(fileName);
-				// WP
 				Resource<?> rubyFile = org.sonar.api.resources.File.fromIOFile(
 						sourceFile, sourceDirs);
-				// RubyFile rubyFile = new RubyFile(sourceFile, sourceDirs);
 
 				CoverageMeasuresBuilder fileCoverage = entry.getValue();
 				if (fileCoverage != null) {

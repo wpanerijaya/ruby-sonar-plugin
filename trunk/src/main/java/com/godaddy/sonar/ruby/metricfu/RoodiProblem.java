@@ -13,7 +13,7 @@ public class RoodiProblem {
     private int line = 0;
     private String problem;
 	
-	public static enum RoodiCheck {
+    public static enum RoodiCheck {
 		AbcMetricMethodCheck,
 		AssignmentInConditionalCheck,
 		CaseMissingElseCheck,
@@ -31,11 +31,11 @@ public class RoodiProblem {
 		ModuleLineCountCheck,
 		ModuleNameCheck,
 		NpathComplexityMethodCheck,
-		ParameterNumberCheck,
-	};
+		ParameterNumberCheck
+	}
 
-	private static final Map<Pattern, RoodiCheck> messageToKeyMap;
-	private static final Map<RoodiCheck, String> keyToSeverityMap;
+	private static Map<Pattern, RoodiCheck> messageToKeyMap;
+	private static Map<RoodiCheck, String> keyToSeverityMap;
 
 	static {
 		Map<Pattern, RoodiCheck> mapPatternToCheck = new HashMap<Pattern, RoodiCheck>();
@@ -179,14 +179,16 @@ public class RoodiProblem {
 		if (keyToSeverityMap.containsKey(check)) {
 			return keyToSeverityMap.get(check);
 		}
-		return Severity.BLOCKER; // Make sure we catch this case.
+		// Make sure we catch this case.
+		return Severity.BLOCKER; 
 	}
 
 	public static String toSeverity(String check) {
 		try {
 			return toSeverity(RoodiCheck.valueOf(check));
 		} catch (Exception e) {
-			return Severity.BLOCKER; // Make sure we catch this case.
+			// Make sure we catch this case.
+			return Severity.BLOCKER; 
 		}
 	}
 }
