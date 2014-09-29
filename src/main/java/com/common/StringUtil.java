@@ -1,6 +1,11 @@
 package com.common;
 
 public class StringUtil {
+
+	private StringUtil() {
+
+	}
+
 	public static String safeString(String s) {
 		if (s == null) {
 			return "";

@@ -20,16 +20,8 @@ public final class SonarWayProfile extends ProfileDefinition {
 
 	@Override
 	public RulesProfile createProfile(ValidationMessages messages) {
-		// WP
-		/*
-		 * RulesProfile profile =
-		 * parser.parseResource(getClass().getClassLoader(),
-		 * "ruby/profiles/sonar-way-profile.xml", messages);
-		 * profile.setDefaultProfile(true); return profile;
-		 */
-
 		InputStream input = getClass().getResourceAsStream(
-				"/ruby/profiles/sonar-way-profile.xml");
+				RubyConstants.RUBY_PROFILE);
 		InputStreamReader reader = new InputStreamReader(input);
 		try {
 			RulesProfile profile = parser.parse(reader, messages);

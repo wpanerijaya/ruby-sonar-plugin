@@ -9,11 +9,10 @@ import org.sonar.api.rules.RuleRepository;
 import org.sonar.api.rules.XMLRuleParser;
 
 import com.godaddy.sonar.ruby.constants.RubyConstants;
-import com.godaddy.sonar.ruby.core.Ruby;
 
 public class RubocopRulesRepository extends RuleRepository {
 	public RubocopRulesRepository() {
-		super(RubyConstants.KEY_REPOSITORY_RUBOCOP, Ruby.KEY);
+		super(RubyConstants.KEY_REPOSITORY_RUBOCOP, RubyConstants.LANGUAGE_KEY);
 		setName(RubyConstants.NAME_REPOSITORY_RUBOCOP);
 	}
 
@@ -21,7 +20,7 @@ public class RubocopRulesRepository extends RuleRepository {
 	public List<Rule> createRules() {
 		XMLRuleParser parser = new XMLRuleParser();
 		InputStream input = RubocopRulesRepository.class
-				.getResourceAsStream("/com/godaddy/sonar/ruby/rubocop/RubocopRulesRepository.xml");
+				.getResourceAsStream(RubyConstants.RUBOCOP_RULES_REPOSITORY);
 		try {
 			return parser.parse(input);
 		} finally {

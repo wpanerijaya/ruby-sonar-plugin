@@ -9,11 +9,10 @@ import org.sonar.api.rules.RuleRepository;
 import org.sonar.api.rules.XMLRuleParser;
 
 import com.godaddy.sonar.ruby.constants.RubyConstants;
-import com.godaddy.sonar.ruby.core.Ruby;
 
 public class RoodiRulesRepository extends RuleRepository {
 	public RoodiRulesRepository() {
-		super(RubyConstants.KEY_REPOSITORY_ROODI, Ruby.KEY);
+		super(RubyConstants.KEY_REPOSITORY_ROODI, RubyConstants.LANGUAGE_KEY);
 		setName(RubyConstants.NAME_REPOSITORY_ROODI);
 	}
 
@@ -21,7 +20,7 @@ public class RoodiRulesRepository extends RuleRepository {
 	public List<Rule> createRules() {
 		XMLRuleParser parser = new XMLRuleParser();
 		InputStream input = RoodiRulesRepository.class
-				.getResourceAsStream("/com/godaddy/sonar/ruby/metricfu/RoodiRulesRepository.xml");
+				.getResourceAsStream(RubyConstants.ROODI_RULES_REPOSITORY);
 		try {
 			return parser.parse(input);
 		} finally {

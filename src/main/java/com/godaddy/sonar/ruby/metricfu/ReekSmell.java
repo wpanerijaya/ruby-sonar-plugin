@@ -13,7 +13,7 @@ public class ReekSmell {
     private String message;
     private String type;
 
-	public static enum Smell {
+    public static enum Smell {
 		Attribute,
 		ClassVariable,
 		ControlCouple,
@@ -41,10 +41,10 @@ public class ReekSmell {
 		UncommunicativeModuleName,
 		UncommunicativeParameterName,
 		UncommunicativeVariableName,
-		UnusedParameters,
+		UnusedParameters
 	}
 
-	private static final Map<Smell, String> keyToSeverityMap;
+	private static Map<Smell, String> keyToSeverityMap;
 
 	static {
 		Map<Smell, String> mapKeyToSeverity = new HashMap<Smell, String>();

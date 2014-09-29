@@ -17,7 +17,7 @@ import org.sonar.api.scan.filesystem.FileQuery;
 import org.sonar.api.scan.filesystem.FileType;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
-import com.godaddy.sonar.ruby.core.Ruby;
+import com.godaddy.sonar.ruby.constants.RubyConstants;
 
 public class MetricfuComplexitySensor implements Sensor {
 	private static final Logger LOG = LoggerFactory
@@ -25,10 +25,6 @@ public class MetricfuComplexitySensor implements Sensor {
 
 	private MetricfuYamlParser metricfuYamlParser;
 	private ModuleFileSystem moduleFileSystem;
-	private static final Number[] FILES_DISTRIB_BOTTOM_LIMITS = { 0, 5, 10, 20,
-			30, 60, 90 };
-	private static final Number[] FUNCTIONS_DISTRIB_BOTTOM_LIMITS = { 1, 2, 4,
-			6, 8, 10, 12, 20, 30 };
 
 	public MetricfuComplexitySensor(ModuleFileSystem moduleFileSystem,
 			MetricfuYamlParser metricfuYamlParser) {
@@ -37,19 +33,15 @@ public class MetricfuComplexitySensor implements Sensor {
 	}
 
 	public boolean shouldExecuteOnProject(Project project) {
-		// WP
-		// return Ruby.KEY.equals(project.getLanguageKey());
 		return !moduleFileSystem.files(
-				FileQuery.on(FileType.values()).onLanguage(Ruby.KEY)).isEmpty();
+				FileQuery.on(FileType.values()).onLanguage(
+						RubyConstants.LANGUAGE_KEY)).isEmpty();
 	}
 
 	public void analyse(Project project, SensorContext context) {
 		List<File> sourceDirs = moduleFileSystem.sourceDirs();
-		// WP
-		// List<File> rubyFilesInProject =
-		// moduleFileSystem.files(FileQuery.onSource().onLanguage(project.getLanguageKey()));
 		List<File> rubyFilesInProject = moduleFileSystem.files(FileQuery
-				.onSource().onLanguage(Ruby.KEY));
+				.onSource().onLanguage(RubyConstants.LANGUAGE_KEY));
 
 		for (File file : rubyFilesInProject) {
 			LOG.debug("analyzing functions for classes in the file: "
@@ -58,17 +50,15 @@ public class MetricfuComplexitySensor implements Sensor {
 				analyzeFile(file, sourceDirs, context);
 			} catch (IOException e) {
 				LOG.error("Can not analyze the file " + file.getAbsolutePath()
-						+ " for complexity");
+						+ " for complexity", e);
 			}
 		}
 	}
 
 	private void analyzeFile(File file, List<File> sourceDirs,
 			SensorContext sensorContext) throws IOException {
-		// WP
 		Resource<?> resource = org.sonar.api.resources.File.fromIOFile(file,
 				sourceDirs);
-		// RubyFile resource = new RubyFile(file, sourceDirs);
 		List<SaikuroComplexity> functions = metricfuYamlParser
 				.parseSaikuro(file.getAbsolutePath());
 
@@ -89,7 +79,7 @@ public class MetricfuComplexitySensor implements Sensor {
 		// FILE_COMPLEXITY_DISTRIBUTION
 		RangeDistributionBuilder fileDistribution = new RangeDistributionBuilder(
 				CoreMetrics.FILE_COMPLEXITY_DISTRIBUTION,
-				FILES_DISTRIB_BOTTOM_LIMITS);
+				RubyConstants.FILES_DISTRIB_BOTTOM_LIMITS);
 		fileDistribution.add(Double.valueOf(fileComplexity));
 		sensorContext.saveMeasure(resource, fileDistribution.build()
 				.setPersistenceMode(PersistenceMode.MEMORY));
@@ -101,7 +91,7 @@ public class MetricfuComplexitySensor implements Sensor {
 		// FUNCTION_COMPLEXITY_DISTRIBUTION
 		RangeDistributionBuilder functionDistribution = new RangeDistributionBuilder(
 				CoreMetrics.FUNCTION_COMPLEXITY_DISTRIBUTION,
-				FUNCTIONS_DISTRIB_BOTTOM_LIMITS);
+				RubyConstants.FUNCTIONS_DISTRIB_BOTTOM_LIMITS);
 		for (SaikuroComplexity function : functions) {
 			functionDistribution.add(Double.valueOf(function.getComplexity()));
 		}

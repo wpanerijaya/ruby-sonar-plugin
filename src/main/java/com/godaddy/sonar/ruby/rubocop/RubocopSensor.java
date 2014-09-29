@@ -22,7 +22,6 @@ import org.sonar.api.scan.filesystem.PathResolver;
 
 import com.common.FileUtil;
 import com.godaddy.sonar.ruby.constants.RubyConstants;
-import com.godaddy.sonar.ruby.core.Ruby;
 
 /**
  * @author Widianto Panerijaya
@@ -31,7 +30,7 @@ public class RubocopSensor implements Sensor {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(RubocopSensor.class);
 
-	private RubocopJsonParser RubocopJsonParser;
+	private RubocopJsonParser rubocopJsonParser;
 	private ModuleFileSystem moduleFileSystem;
 	private final ResourcePerspectives perspectives;
 	private PathResolver pathResolver;
@@ -40,24 +39,26 @@ public class RubocopSensor implements Sensor {
 	 * Use of IoC to get Settings
 	 */
 	public RubocopSensor(ModuleFileSystem moduleFileSystem,
-			RubocopJsonParser RubocopJsonParser,
+			RubocopJsonParser rubocopJsonParser,
 			ResourcePerspectives perspectives, PathResolver pathResolver) {
 		this.moduleFileSystem = moduleFileSystem;
-		this.RubocopJsonParser = RubocopJsonParser;
+		this.rubocopJsonParser = rubocopJsonParser;
 		this.perspectives = perspectives;
 		this.pathResolver = pathResolver;
 	}
 
 	public boolean shouldExecuteOnProject(Project project) {
 		return !moduleFileSystem.files(
-				FileQuery.on(FileType.values()).onLanguage(Ruby.KEY)).isEmpty();
+				FileQuery.on(FileType.values()).onLanguage(
+						RubyConstants.LANGUAGE_KEY)).isEmpty();
 	}
 
 	public void analyse(Project project, SensorContext context) {
 		LOG.debug("Enter analyze");
-		if (moduleFileSystem.baseDir() == null)
+		if (moduleFileSystem.baseDir() == null) {
 			return;
-		List<File> files = FileUtil.FindDirectories(moduleFileSystem.baseDir(),
+		}
+		List<File> files = FileUtil.findDirectories(moduleFileSystem.baseDir(),
 				"spec", true);
 		for (File source : files) {
 			LOG.debug("ruby project folder : " + source.getParent());
@@ -66,13 +67,14 @@ public class RubocopSensor implements Sensor {
 			File jsonFile = pathResolver.relativeFile(source.getParentFile(),
 					RubyConstants.RUBOCOP_REPORT_FILE);
 			LOG.debug("jsonFile : " + jsonFile.getAbsolutePath());
-			if (!jsonFile.exists())
+			if (!jsonFile.exists()) {
 				continue;
+			}
 			try {
 				calculateMetrics(project, jsonFile, source.getParentFile(),
 						context);
 			} catch (IOException e) {
-				LOG.error("unable to calculate Metrics");
+				LOG.error("unable to calculate Metrics", e);
 			}
 		}
 		LOG.debug("Exit analyze");
@@ -81,7 +83,7 @@ public class RubocopSensor implements Sensor {
 	private void calculateMetrics(Project project, File jsonFile, File source,
 			final SensorContext context) throws IOException {
 		LOG.debug("Enter calculateMetrics");
-		List<RubocopOffense> offenses = RubocopJsonParser.parse(jsonFile);
+		List<RubocopOffense> offenses = rubocopJsonParser.parse(jsonFile);
 
 		File sourceFile = null;
 		try {
@@ -91,7 +93,8 @@ public class RubocopSensor implements Sensor {
 				sourceFile = pathResolver.relativeFile(source, fileName);
 				LOG.debug("sourceFile : " + sourceFile);
 				if (moduleFileSystem.files(
-						FileQuery.onSource().onLanguage(Ruby.KEY)).contains(
+						FileQuery.onSource().onLanguage(
+								RubyConstants.LANGUAGE_KEY)).contains(
 						sourceFile)) {
 					Resource<?> rubyFile = org.sonar.api.resources.File
 							.fromIOFile(sourceFile, project);
@@ -132,7 +135,7 @@ public class RubocopSensor implements Sensor {
 						+ issue.toString());
 			}
 		} catch (Exception e) {
-			LOG.error("Error in create issue object" + e.getMessage());
+			LOG.error("Error in create issue object", e);
 		} finally {
 			LOG.debug("Exit addIsue");
 		}

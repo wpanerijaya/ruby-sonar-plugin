@@ -1,5 +1,12 @@
 package com.godaddy.sonar.ruby;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.sonar.api.Extension;
+import org.sonar.api.Properties;
+import org.sonar.api.SonarPlugin;
+
 import com.godaddy.sonar.ruby.core.Ruby;
 import com.godaddy.sonar.ruby.core.RubySourceCodeColorizer;
 import com.godaddy.sonar.ruby.core.RubySourceImporter;
@@ -8,7 +15,6 @@ import com.godaddy.sonar.ruby.cpd.CPDDuplicationParserImpl;
 import com.godaddy.sonar.ruby.cpd.CPDDuplicationSensor;
 import com.godaddy.sonar.ruby.metricfu.CaneRulesRepository;
 import com.godaddy.sonar.ruby.metricfu.MetricfuComplexitySensor;
-import com.godaddy.sonar.ruby.metricfu.MetricfuDuplicationSensor;
 import com.godaddy.sonar.ruby.metricfu.MetricfuIssueSensor;
 import com.godaddy.sonar.ruby.metricfu.MetricfuYamlParser;
 import com.godaddy.sonar.ruby.metricfu.ReekRulesRepository;
@@ -18,13 +24,6 @@ import com.godaddy.sonar.ruby.rubocop.RubocopRulesRepository;
 import com.godaddy.sonar.ruby.rubocop.RubocopSensor;
 import com.godaddy.sonar.ruby.simplecovrcov.SimpleCovRcovJsonParserImpl;
 import com.godaddy.sonar.ruby.simplecovrcov.SimpleCovRcovSensor;
-
-import org.sonar.api.Extension;
-import org.sonar.api.Properties;
-import org.sonar.api.SonarPlugin;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class is the entry point for all extensions

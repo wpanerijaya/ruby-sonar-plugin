@@ -18,9 +18,12 @@ import org.sonar.api.scan.filesystem.FileQuery;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 import org.sonar.api.utils.SonarException;
 
+import com.godaddy.sonar.ruby.constants.RubyConstants;
+
 @Phase(name = Phase.Name.PRE)
 public class RubySourceImporter extends AbstractSourceImporter {
-	private static final Logger LOG = LoggerFactory.getLogger(RubySourceImporter.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(RubySourceImporter.class);
 	private Project project;
 	private ModuleFileSystem moduleFileSystem;
 
@@ -41,17 +44,20 @@ public class RubySourceImporter extends AbstractSourceImporter {
 	}
 
 	@Override
-	protected RubyFile createResource(File file, List<File> sourceDirs, boolean unitTest) {
+	protected RubyFile createResource(File file, List<File> sourceDirs,
+			boolean unitTest) {
 		return file != null ? new RubyFile(file, sourceDirs) : null;
 	}
 
-	protected void doAnalyse(Project project, SensorContext context) throws IOException {
+	protected void doAnalyse(Project project, SensorContext context)
+			throws IOException {
 		// Importing source files
 		Charset sourceCharset = moduleFileSystem.sourceCharset();
 
 		List<File> sourceDirs = moduleFileSystem.sourceDirs();
 		LOG.info("Got {} source dirs", sourceDirs.size());
-		List<File> sourceFiles = moduleFileSystem.files(FileQuery.onSource().onLanguage(Ruby.KEY));
+		List<File> sourceFiles = moduleFileSystem.files(FileQuery.onSource()
+				.onLanguage(RubyConstants.LANGUAGE_KEY));
 		LOG.info("Got {} source files", sourceFiles.size());
 		parseDirs(context, sourceFiles, sourceDirs, false, sourceCharset);
 		for (File directory : sourceDirs) {
@@ -71,7 +77,8 @@ public class RubySourceImporter extends AbstractSourceImporter {
 	}
 
 	@Override
-	protected void parseDirs(SensorContext context, List<File> files, List<File> sourceDirs, boolean unitTest, Charset sourcesEncoding) {
+	protected void parseDirs(SensorContext context, List<File> files,
+			List<File> sourceDirs, boolean unitTest, Charset sourcesEncoding) {
 		for (File file : files) {
 			RubyFile resource = createResource(file, sourceDirs, unitTest);
 			if (resource != null) {
@@ -79,13 +86,17 @@ public class RubySourceImporter extends AbstractSourceImporter {
 					LOG.debug("Indexing resource: " + resource.getName());
 					context.index(resource);
 					if (isEnabled(project)) {
-						String source = FileUtils.readFileToString(file, sourcesEncoding.name());
+						String source = FileUtils.readFileToString(file,
+								sourcesEncoding.name());
 						LOG.debug("Saving source from: " + file.getPath());
 						context.saveSource(resource, source);
 					}
 				} catch (Exception e) {
-					throw new SonarException("Unable to read and import the source file : '" + file.getAbsolutePath()
-							+ "' with the charset : '" + sourcesEncoding.name() + "'.", e);
+					throw new SonarException(
+							"Unable to read and import the source file : '"
+									+ file.getAbsolutePath()
+									+ "' with the charset : '"
+									+ sourcesEncoding.name() + "'.", e);
 				}
 			}
 		}
@@ -93,7 +104,8 @@ public class RubySourceImporter extends AbstractSourceImporter {
 
 	@Override
 	public String toString() {
-		ToStringBuilder builder = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+		ToStringBuilder builder = new ToStringBuilder(this,
+				ToStringStyle.SHORT_PREFIX_STYLE);
 		builder.append("getLanguage()", getLanguage());
 		builder.append("getClass()", getClass());
 		return builder.toString();
